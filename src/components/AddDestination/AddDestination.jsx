@@ -10,7 +10,7 @@ const AddDestination = () => {
 
   const onSubmit = (data) => {
     // data.email = user?.email;
-    fetch("http://localhost:5000/addDestination", {
+    fetch("https://fast-tor-02463.herokuapp.com/addDestination", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),

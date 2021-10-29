@@ -7,13 +7,13 @@ import SingleDestination from "../SingleDestination/SingleDestination";
 const Destination = () => {
   const [destinations, setDestinations] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/addDestination")
+    fetch("https://fast-tor-02463.herokuapp.com/addDestination")
       .then((res) => res.json())
       .then((data) => setDestinations(data));
   }, []);
   return (
     <div>
-      <h3 className="text-center my-3">Explore {destinations.length} Best Destination</h3>
+      <h3 className="text-center my-3">Explore {destinations.length} Best Destinations</h3>
       <div className="destinations-container">
         {destinations.map((destination) => (
           <SingleDestination

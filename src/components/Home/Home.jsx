@@ -1,7 +1,6 @@
-import React from 'react';
-import Destination from '../Destination/Destination';
+import React from "react";
+import Destination from "../Destination/Destination";
 const Home = () => {
-  
   return (
     <div>
       <div
@@ -72,7 +71,10 @@ const Home = () => {
           data-bs-target="#carouselExampleCaptions"
           data-bs-slide="prev"
         >
-          <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span
+            className="carousel-control-prev-icon"
+            aria-hidden="true"
+          ></span>
           <span className="visually-hidden">Previous</span>
         </button>
         <button
@@ -81,11 +83,60 @@ const Home = () => {
           data-bs-target="#carouselExampleCaptions"
           data-bs-slide="next"
         >
-          <span className="carousel-control-next-icon" aria-hidden="true"></span>
+          <span
+            className="carousel-control-next-icon"
+            aria-hidden="true"
+          ></span>
           <span className="visually-hidden">Next</span>
         </button>
       </div>
       <Destination></Destination>
+
+      <div class="container overflow-hidden my-3">
+        <h3 className="text-center my-5">What We Offer</h3>
+        <div class="row gx-5">
+          <div class="col-lg-3">
+            <div class="text-center">
+              <img
+                src="https://setsail.qodeinteractive.com/wp-content/uploads/2018/09/h1-custom-icon-img-1.png"
+                alt=""
+              />
+              <h6>Restaurants</h6>
+              <p></p>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="text-center">
+              <img
+                src="https://setsail.qodeinteractive.com/wp-content/uploads/2018/09/h1-custom-icon-img-2.png"
+                alt=""
+              />
+              <h6>Sightseeing</h6>
+              <p></p>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="text-center">
+              <img
+                src="https://setsail.qodeinteractive.com/wp-content/uploads/2018/09/h1-custom-icon-img-3.png"
+                alt=""
+              />
+              <h6>Shops & Boutiques</h6>
+              <p></p>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="text-center">
+              <img
+                src="https://setsail.qodeinteractive.com/wp-content/uploads/2018/09/h1-custom-icon-img-4.png"
+                alt=""
+              />
+              <h6>Where to Stay</h6>
+              <p></p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
