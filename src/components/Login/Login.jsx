@@ -1,12 +1,15 @@
 import React from "react";
-import { Link, useLocation, useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router";
+import { Link } from "react-router-dom";
 import useFirebase from "../../allHooks/useFirebase";
 
 const Login = () => {
   const { SignInUsingGoogle, setUser, setError} = useFirebase();
   const location = useLocation();
   const history = useHistory();
-  const redirect_uri = location.state?.from || '/home';
+  const redirect_uri = location.state?.from || '/';
+
+  console.log(redirect_uri);
 
   const handleGoogleLogin = () => {
     SignInUsingGoogle()

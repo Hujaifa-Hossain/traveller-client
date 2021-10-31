@@ -20,13 +20,15 @@ const useFirebase = () => {
   const SignInUsingGoogle = () => {
     return signInWithPopup(auth, GoogleProvider);
   };
+
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
       }
     });
-  }, [error]);
+  }, []);
+  
   const logOut = () => {
     signOut(auth)
       .then(() => {

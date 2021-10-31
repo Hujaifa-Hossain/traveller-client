@@ -7,7 +7,8 @@ import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import NotFound from './components/NotFound/NotFound';
 import AddDestination from './components/AddDestination/AddDestination';
-
+import DestinationDetail from './components/DestinationDetail/DestinationDetail';
+import DashBoard from './components/DashBoard/DashBoard';
 
 function App() {
   return (
@@ -27,8 +28,14 @@ function App() {
           <Route path="/register">
             <Register></Register>
           </Route>
+          <Route path="/dashboard">
+            <DashBoard></DashBoard>
+          </Route>
           <Route path="/AddDestination">
             <AddDestination></AddDestination>
+          </Route>
+          <Route path="/destination/:_id">
+            <DestinationDetail></DestinationDetail>
           </Route>
           <Route path="*">
             <NotFound></NotFound>

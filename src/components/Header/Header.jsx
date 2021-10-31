@@ -38,16 +38,19 @@ const Header = () => {
                   Contact
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link active" to="/about">
-                  About
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link active" to="/AddDestination">
-                  AddDestination
-                </Link>
-              </li>
+              {user?.email ? (
+                <li className="nav-item">
+                  <Link className="nav-link active" to="/dashboard">
+                    Dashboard
+                  </Link>
+                </li>
+              ) : (
+                <li className="nav-item">
+                  <Link className="nav-link active" to="/AddDestination">
+                    AddDestination
+                  </Link>
+                </li>
+              )}
               {user?.displayName ? (
                 <li className="nav-item p-2">{user?.displayName}</li>
               ) : (
