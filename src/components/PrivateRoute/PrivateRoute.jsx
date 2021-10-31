@@ -3,13 +3,18 @@ import { Redirect, Route } from "react-router";
 import useFirebase from "../../allHooks/useFirebase";
 
 const PrivateRoute = ({ children, ...rest }) => {
-  const { user } = useFirebase();
+  const { user, isLoading } = useFirebase();
+
+  if (isLoading) {
+    return "loading";
+  }
+
   return (
     <div>
       <Route
         {...rest}
         render={({ location }) =>
-          user?.email ? (
+          user.email ? (
             children
           ) : (
             <Redirect

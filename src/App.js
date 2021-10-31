@@ -8,7 +8,9 @@ import Register from './components/Register/Register';
 import NotFound from './components/NotFound/NotFound';
 import AddDestination from './components/AddDestination/AddDestination';
 import DestinationDetail from './components/DestinationDetail/DestinationDetail';
-import DashBoard from './components/DashBoard/DashBoard';
+import ManageOrders from './components/ManageOrders/ManageOrders';
+import MyOrders from './components/MyOrders/MyOrders';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 function App() {
   return (
@@ -28,15 +30,18 @@ function App() {
           <Route path="/register">
             <Register></Register>
           </Route>
-          <Route path="/dashboard">
-            <DashBoard></DashBoard>
+          <Route path="/manage">
+            <ManageOrders></ManageOrders>
+          </Route>
+          <Route path="/cart">
+            <MyOrders></MyOrders>
           </Route>
           <Route path="/AddDestination">
             <AddDestination></AddDestination>
           </Route>
-          <Route path="/destination/:_id">
+          <PrivateRoute path="/destination/:_id">
             <DestinationDetail></DestinationDetail>
-          </Route>
+          </PrivateRoute>
           <Route path="*">
             <NotFound></NotFound>
           </Route>

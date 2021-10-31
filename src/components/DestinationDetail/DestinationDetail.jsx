@@ -6,58 +6,100 @@ import useFirebase from "../../allHooks/useFirebase";
 const DestinationDetail = () => {
   const { _id } = useParams();
   const { user } = useFirebase();
+  const [isUpdate, setIsUpdated] = useState(null);
 
   const [destinations, setDestinations] = useState({});
   useEffect(() => {
-    const url = `http://localhost:5000/destination/${_id}`;
+    const url = `https://fast-tor-02463.herokuapp.com/destination/${_id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setDestinations(data));
   }, [_id]);
 
   const {
+    register,
     handleSubmit,
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    fetch(`http://localhost:5000/destination/${_id}`, {
+    fetch(`https://fast-tor-02463.herokuapp.com/orders/${_id}`, {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),
     })
       .then((res) => res.json())
-      .then((result) => console.log(result));
+      .then((result) => {
+        if (result.modifiedCount) {
+          setIsUpdated(true);
+        } else {
+          setIsUpdated(false);
+        }
+      });
     console.log(data);
   };
-
   const destination = destinations[0];
   return (
     <div>
-      <div class="container overflow-hidden">
-        <div class="row gx-5">
-          <div class="col-lg-6">
-            <div class="p-3">
-              <div class="card mb-3">
-                <img src={destination?.image} class="card-img-top" alt="..." />
-                <div class="card-body">
-                  <h5 class="card-title">{destination?.name}</h5>
-                  <p class="card-text">{destination?.description}</p>
-                  
+      <div className="container overflow-hidden">
+        <div className="row gx-5">
+          <div className="col-lg-6">
+            <div className="p-3">
+              <div className="card mb-3">
+                <img
+                  src={destination?.image}
+                  className="card-img-top"
+                  alt="..."
+                />
+                <div className="card-body">
+                  <h5 className="card-title">{destination?.name}</h5>
+                  <p className="card-text">{destination?.description}</p>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col">
-            <div class="p-3">
+          <div className="col-lg-6">
+            <div className="p-3">
+            <h3>Shipment Form</h3>
               <form onSubmit={handleSubmit(onSubmit)}>
-                <input defaultValue={user?.displayName} />
-                <input defaultValue={user?.email} />
-                <input defaultValue={destination?._id} />
+                {/* register your input into the hook by invoking the "register" function */}
+                <input
+                  className="p-2 m-2"
+                  placeholder="Enter your name"
+                  defaultValue={user?.displayName}
+                  {...register("user", { required: true })}
+                />
+                <input
+                  className="p-2 m-2"
+                  placeholder="Enter your email"
+                  defaultValue={user?.email}
+                  {...register("email", { required: true })}
+                />
 
+                <input
+                  className="p-2 m-2"
+                  placeholder="Enter your destination"
+                  defaultValue={destination?.name}
+                  {...register("name", { required: true })}
+                  required
+                />
+
+                {/* include validation with required or other standard HTML validation rules */}
+                <input
+                  className="p-2 m-2"
+                  type="text"
+                  placeholder="Enter your address"
+                  defaultValue="Address"
+                  {...register("address", { required: true })}
+                  required
+                />
                 {/* errors will return when field validation fails  */}
                 {errors.exampleRequired && <span>This field is required</span>}
-
-                <input type="submit" />
+                <br />
+                <input
+                  className="btn btn-dark w-50"
+                  type="submit"
+                  value="place order"
+                />
               </form>
             </div>
           </div>

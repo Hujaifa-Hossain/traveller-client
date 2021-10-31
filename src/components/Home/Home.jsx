@@ -143,37 +143,27 @@ const Home = () => {
 
 
 
-      <div className="container overflow-hidden my-3">
-        <h3 className="text-center my-5">OUR PACKAGES</h3>
+      <div className="container-fluid overflow-hidden mt-5">
+        <h3 className="my-3 text-center">What Client Say About Us</h3>
         <div className="row gx-5">
-          <div className="col-lg-4">
-            <div className="text-center">
-              <img className="img-fluid"
-                src="http://www.nicdarkthemes.com/themes/travel/wp/demo/love-travel/wp-content/uploads/sites/3/2018/11/package-1-1024x640.jpg"
+          <div className="col-lg-3">
+            <div>
+              <img
+                className="img-fluid rounded-circle"
+                src="https://image.freepik.com/free-photo/tourist-presenting-something_1368-7018.jpg"
                 alt=""
               />
-              <h6>Berlin</h6>
-              <p>Culture <br /> Relax      500$</p>
             </div>
           </div>
-          <div className="col-lg-4">
-            <div className="text-center">
-              <img className="img-fluid"
-                src="http://www.nicdarkthemes.com/themes/travel/wp/demo/love-travel/wp-content/uploads/sites/3/2018/03/package-6-1024x640.jpg"
-                alt=""
-              />
-              <h6>Hong Kong</h6>
-              <p>History <br /> Culture      400$</p>
-            </div>
-          </div>
-          <div className="col-lg-4">
-            <div className="text-center">
-              <img className="img-fluid"
-                src="http://www.nicdarkthemes.com/themes/travel/wp/demo/love-travel/wp-content/uploads/sites/3/2018/11/package-2-1024x640.jpg"
-                alt=""
-              />
-              <h6>San Francisco</h6>
-              <p>Sports <br /> Relax      700$</p>
+          <div className="col-lg-9">
+            <div className="p-3 bg-dark text-white my-3">
+              <p>
+                This place is fun and challenging and really convenient as you
+                can go to different places, rather than having to commit to a
+                specific place. The guide are really friendly and they
+                all have their own style of guiding. 👍 🤩{" "}
+              </p>
+              <h5>Hujaifa Hossain</h5>
             </div>
           </div>
         </div>

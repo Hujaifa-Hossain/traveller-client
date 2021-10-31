@@ -4,23 +4,32 @@ import { Link } from "react-router-dom";
 import useFirebase from "../../allHooks/useFirebase";
 
 const Login = () => {
-  const { SignInUsingGoogle, setUser, setError} = useFirebase();
-  const location = useLocation();
-  const history = useHistory();
-  const redirect_uri = location.state?.from || '/';
+  const { SignInUsingGoogle, setUser, setIsLoading } = useFirebase();
 
-  console.log(redirect_uri);
+const history= useHistory()
+const location = useLocation()
+
+const url= location.state?.from || "/home"
+
+  // const { SignInUsingGoogle, setUser, setError} = useFirebase();
+  // const location = useLocation();
+  // const history = useHistory();
+  // const redirect_uri = location.state?.from || '/home';
+
 
   const handleGoogleLogin = () => {
     SignInUsingGoogle()
-    .then((result) => {
-      history.push(redirect_uri);
-      console.log(result.user)
-      setUser(result.user);
-    })
-    .catch((error) => {
-      setError(error.message)
-    });
+    .then((res) => 
+        {
+          setIsLoading(true)
+          setUser(res.user)
+          history.push(url)
+        }
+          )
+      .catch((err) => console.log(err))
+      .finally(() => {
+        setIsLoading(false)
+      })
   };
 
   return (

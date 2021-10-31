@@ -33,23 +33,34 @@ const Header = () => {
                   Home
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link active" to="/contact">
-                  Contact
-                </Link>
-              </li>
+              {user?.email ? (
+                (<li className="nav-item">
+                  <Link className="nav-link active" to="/AddDestination">
+                    Add Service
+                  </Link>
+                </li>)
+              ) : (
+                <li></li>
+              )}
               {user?.email ? (
                 <li className="nav-item">
-                  <Link className="nav-link active" to="/dashboard">
-                    Dashboard
+                  <Link className="nav-link active" to="/manage">
+                    Manage
                   </Link>
                 </li>
               ) : (
-                <li className="nav-item">
-                  <Link className="nav-link active" to="/AddDestination">
-                    AddDestination
-                  </Link>
-                </li>
+                <li></li>
+              )}
+              {user?.email ? (
+                (
+                  <li className="nav-item">
+                    <Link className="nav-link active" to="/cart">
+                      Cart
+                    </Link>
+                  </li>
+                )
+              ) : (
+                <li></li>
               )}
               {user?.displayName ? (
                 <li className="nav-item p-2">{user?.displayName}</li>
