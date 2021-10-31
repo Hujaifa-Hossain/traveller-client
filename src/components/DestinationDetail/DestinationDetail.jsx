@@ -88,7 +88,7 @@ const DestinationDetail = () => {
                   className="p-2 m-2"
                   type="text"
                   placeholder="Enter your address"
-                  defaultValue="Address"
+                  defaultValue="Enter your address"
                   {...register("address", { required: true })}
                   required
                 />

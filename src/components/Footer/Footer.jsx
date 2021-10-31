@@ -33,22 +33,22 @@ const Footer = () => {
                 <li className="list-group-item bg-dark p-0">
                   <Link
                     className="text-decoration-none text-white"
-                    to="/services"
+                    to="/AddDestination"
                   >
-                    Services
+                    Add Service
                   </Link>
                 </li>
                 <li className="list-group-item bg-dark p-0">
-                  <Link className="text-decoration-none text-white" to="/about">
-                    About
+                  <Link className="text-decoration-none text-white" to="/manage">
+                    Manage
                   </Link>
                 </li>
                 <li className="list-group-item bg-dark  p-0">
                   <Link
                     className="text-decoration-none text-white"
-                    to="/contact"
+                    to="/cart"
                   >
-                    Contact
+                    Cart
                   </Link>
                 </li>
               </ul>

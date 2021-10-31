@@ -7,7 +7,6 @@ const MyOrders = () => {
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, []);
-  // console.log(orders);
 
   const handleCancel = (_id) => {
     fetch(`https://fast-tor-02463.herokuapp.com/delete/${_id}`, {
@@ -29,30 +28,20 @@ const MyOrders = () => {
       <table className="table container">
         <thead className="mx-auto">
           <tr>
-            {/* <th scope="col">Image</th> */}
             <th scope="col">Name</th>
-            {/* <th scope="col">Price</th> */}
-            {/* <th scope="col">Buyer</th> */}
             <th scope="col">Email</th>
-            {/* <th scope="col">Status</th> */}
             <th scope="col">Cancel</th>
           </tr>
         </thead>
         <tbody>
           {orders?.map((order) => {
-            const { _id, img, title, price, name, email, status } = order;
+            const { _id, name, email } = order;
 
             return (
               <tr key={_id}>
-                {/* <td>
-                  <img width="50px" src={img} alt="" />
-                </td> */}
-                {/* <td>{title?.slice(0, 10)}</td> */}
-                {/* <td>{price}</td> */}
                 <td>{name}</td>
 
                 <td>{email}</td>
-                {/* <td>{status}</td> */}
                 <td>
                   <button
                     onClick={() => handleCancel(_id)}

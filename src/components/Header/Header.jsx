@@ -44,8 +44,8 @@ const Header = () => {
               )}
               {user?.email ? (
                 <li className="nav-item">
-                  <Link className="nav-link active" to="/manage">
-                    Manage
+                  <Link className="nav-link active" to="/cart">
+                  Manage
                   </Link>
                 </li>
               ) : (
@@ -54,8 +54,8 @@ const Header = () => {
               {user?.email ? (
                 (
                   <li className="nav-item">
-                    <Link className="nav-link active" to="/cart">
-                      Cart
+                    <Link className="nav-link active" to="/manage">
+                    Cart
                     </Link>
                   </li>
                 )
